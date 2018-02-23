@@ -63,7 +63,7 @@ def fetch_keywords(f1, f2, filetype, text_col, f3='keywords.txt'):
         return True
     else:
         print('关键字提取失败')
-        return True
+        return False
 
 
 def process(line, filetype, text_col):
