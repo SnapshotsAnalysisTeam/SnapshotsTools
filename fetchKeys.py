@@ -116,7 +116,7 @@ def process(line, filetype, text_col, pattern = [(r'\d+\.\d+|\s\d+',r'x'),]):
     :return class:str 关键字字符串，末尾带'\n', 如果是None，说明文件分析失败
 
     '''
-    if filetype is 'CSV':
+    if filetype == 'CSV':
         key_ls = line.split(',')
         # 排除文件中不符合规则的行
         if len(key_ls) < text_col:
@@ -125,7 +125,7 @@ def process(line, filetype, text_col, pattern = [(r'\d+\.\d+|\s\d+',r'x'),]):
         str1 = key_ls[text_col - 1]
         for pat in pattern:
             str1  = re.sub(pat[0],pat[1],str1)
-        if str1[-1] is '\n':
+        if str1[-1] == '\n':
             return str1
         else:
             return '{0}{1}'.format(str1, '\n')
